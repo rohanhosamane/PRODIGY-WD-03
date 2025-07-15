@@ -7,7 +7,6 @@ def check_password_strength(password):
     lowercase_error = re.search(r"[a-z]", password) is None
     symbol_error = re.search(r"[!@#$%^&*()_+{}\[\]:;<>,.?~\-=/\\|]", password) is None
 
-    # Count the total number of errors
     errors = sum([length_error, digit_error, uppercase_error, lowercase_error, symbol_error])
 
     print("\nPassword Feedback:")
@@ -22,7 +21,6 @@ def check_password_strength(password):
     if symbol_error:
         print("- Must include at least one special character.")
 
-    # Strength level
     if errors == 0:
         return "Strong ✅"
     elif errors <= 2:
@@ -30,7 +28,6 @@ def check_password_strength(password):
     else:
         return "Weak ❌"
 
-# Input from user
 password = input("Enter your password: ")
 strength = check_password_strength(password)
 print(f"\nPassword Strength: {strength}")
